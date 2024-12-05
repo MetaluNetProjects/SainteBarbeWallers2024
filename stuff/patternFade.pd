@@ -1,5 +1,5 @@
 #N canvas 84 62 655 621 10;
-#N canvas 194 529 378 404 fadeToScene 1;
+#N canvas 194 529 378 404 fadeToScene 0;
 #X obj 37 321 list prepend _all_;
 #X obj 37 343 list trim;
 #X obj 40 230 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
@@ -31,7 +31,7 @@
 #X connect 13 0 2 0;
 #X restore 205 302 pd fadeToScene;
 #X obj 206 280 pack f 2000;
-#X obj 326 108 hsl 128 15 0 10000 0 0 \$1-fadeToScene-time \$1-fadeToScene-time fadeTime:1.1_sec -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 326 108 hsl 128 15 0 10000 0 0 \$1-fadeToScene-time \$1-fadeToScene-time fadeTime:1.7_sec -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 470 171 / 100;
 #X obj 470 193 i;
 #X obj 470 215 / 10;
@@ -42,7 +42,7 @@
 #X obj 470 80 r \$1-fadeToScene-time;
 #X obj 470 273 s \$1-fadeToScene-time;
 #X obj 316 171 r \$1-fadeToScene-time;
-#X obj 191 177 r \$1-fadeToScene;
+#X obj 206 166 r \$1-fadeToScene;
 #X obj 133 56 hradio 8 1 0 64 \$1-fadeToScene \$1-fadeToScene empty 0 -8 0 10 #fcfcfc #000000 #000000 0;
 #X obj 74 207 s \$1-fadeToScene;
 #X obj 74 76 r \$1-fade-patternButton-snd;
@@ -75,17 +75,19 @@
 #X floatatom 423 493 5 0 0 0 - - - 0;
 #X obj 460 532 s \$1-setap-snd;
 #X msg 460 512 _all_ _nbpattern_ \$1;
+#X obj 269 248 f;
+#X obj 206 190 t b a;
 #X connect 1 0 0 0;
 #X connect 3 0 4 0;
 #X connect 4 0 5 0;
 #X connect 5 0 7 0;
 #X connect 5 0 9 0;
-#X connect 6 0 1 1;
+#X connect 6 0 46 0;
 #X connect 8 0 35 0;
 #X connect 9 0 11 0;
 #X connect 10 0 8 0;
 #X connect 12 0 6 0;
-#X connect 13 0 1 0;
+#X connect 13 0 47 0;
 #X connect 17 0 18 0;
 #X connect 18 0 19 0;
 #X connect 19 0 20 0;
@@ -111,3 +113,6 @@
 #X connect 41 0 45 0;
 #X connect 42 0 40 0;
 #X connect 45 0 44 0;
+#X connect 46 0 1 1;
+#X connect 47 0 46 0;
+#X connect 47 1 1 0;

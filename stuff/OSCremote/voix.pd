@@ -1,0 +1,4 @@
+#N canvas 542 250 450 300 12;
+#X obj 128 90 r Voix\$1-ingain;
+#X floatatom 128 114 5 0 0 0 - - -;
+#X connect 0 0 1 0;

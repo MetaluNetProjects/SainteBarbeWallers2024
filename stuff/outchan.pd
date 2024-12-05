@@ -4,7 +4,7 @@
 #X msg 83 153 \$1 20;
 #X obj 83 174 line~;
 #X obj 40 208 *~;
-#X obj 86 107 hsl 128 15 0 1 0 1 empty empty empty -2 -8 0 10 #fcfcfc #000000 #000000 4978 1;
+#X obj 86 107 hsl 128 15 0 1 0 1 empty empty empty -2 -8 0 10 #fcfcfc #000000 #000000 12700 1;
 #X obj 84 245 limiter~;
 #X obj 41 245 z~ 64;
 #X obj 169 349 - 88;
@@ -16,7 +16,7 @@
 #X obj 40 409 dac~ \$1;
 #X obj 99 409 outlet~;
 #X obj 41 293 hip~ 20;
-#X obj 83 76 r main-master;
+#X obj 83 76 r audio-master;
 #X connect 0 0 16 0;
 #X connect 1 0 2 0;
 #X connect 2 0 3 0;
