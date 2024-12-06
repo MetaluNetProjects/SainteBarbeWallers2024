@@ -75,6 +75,7 @@ class Lamp {
             case 2: // group command
                 if(len > 1) {
                     int g = data[0];
+                    if(!groups[g]) { printf("e groups %d undefined!\n", g); return;}
                     data++; len--;
                     int i = 0;
                     int l = (unsigned int)groups[g][i];
@@ -146,7 +147,7 @@ class LampFire: public Lamp {
     int colorRandom = 60; // percent
 
     int intensSpeed = 80; // 0 - 255
-    int intensMax = 0;
+    int intensMax = 0; //255 * 16;
     int intensMin = 0;
     int intens = 0, intensFilt = 0; // 0 - 4095
     struct { unsigned char r, g, b, w; } colorLow = {150, 0, 0, 0}, colorHigh = {255, 240, 0, 0};
@@ -271,6 +272,7 @@ class LampFire: public Lamp {
                 colorFiltFactor     = 100 - data[6];
                 colorFiltFactor = CLIP(colorFiltFactor, 1, 100);
                 intensSpeed         = data[7];
+                if(intensSpeed < 2) intensSpeed = 2;
                 break;
             case 2: // colors
                 if(len < 9) break;

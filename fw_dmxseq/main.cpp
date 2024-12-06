@@ -43,25 +43,37 @@ void setup() {
     gpio_put(DMX_DRV_PIN, 0);
 
     Lamp::set_period_ms((DMX_CHAN_COUNT * 11) / 250);
+
+    // RGBA: 18 rampes: 0 - 17 (DMX 1 - 72)
     int chan = 1;
     int id = 0;
-
-    // RGBA: 18 rampes (0 - 17) + 10 parDMX (18 - 27)
-    for(int i = 0; i < 28; i++) {
+    for(int i = 0; i < 18; i++) {
         new LampFire(id++, chan, 4);
         chan += 4;
     }
 
-    // RGB: 8 parPixel (28 - 35)
-    for(int i = 0; i < 28; i++) {
-        new LampFire(id++, chan, 3);
-        chan += 3;
-    }
-
-    // single: 36 -
-    for(int i = 0; i < 50; i++) {
+    chan = 80;
+    id = 30;
+    // 20 single: 30 - 49 (DMX 80 - 99)
+    for(int i = 0; i < 20; i++) {
         new LampFire(id++, chan, 1);
         chan += 1;
+    }
+
+    chan = 120;
+    id = 80;
+    // RGBA: 10 parDMX: 80 - 89 (DMX 120 - 159)
+    for(int i = 0; i < 10; i++) {
+        new LampFire(id++, chan, 4);
+        chan += 4;
+    }
+
+    chan = 180;
+    id = 100;
+    // RGB: 10 parPixel: 100 - 109 (DMX 180 - 209)
+    for(int i = 0; i < 10; i++) {
+        new LampFire(id++, chan, 3);
+        chan += 3;
     }
 
     fill_frame();
